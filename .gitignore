@@ -1,0 +1,33 @@
+/logs
+/symfony/app/config/parameters.yml
+/symfony/build/
+/symfony/phpunit.xml
+/symfony/app/var
+/symfony/var/*
+!/symfony/var/cache
+/symfony/var/cache/*
+!/symfony/var/cache/.gitkeep
+!/symfony/var/logs
+/symfony/var/logs/*
+!/symfony/var/logs/.gitkeep
+!/symfony/var/sessions
+/symfony/var/sessions/*
+!/symfony/var/sessions/.gitkeep
+!/symfony/var/SymfonyRequirements.php
+/symfony/vendor/
+/symfony/web/bundles/
+
+###> symfony/framework-bundle ###
+/symfony/public/bundles/
+/symfony/var/
+/symfony/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+/symfony/.phpunit
+/symfony/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/web-server-bundle ###
+/symfony/.web-server-pid
+###< symfony/web-server-bundle ###

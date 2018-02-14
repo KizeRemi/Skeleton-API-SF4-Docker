@@ -1,0 +1,21 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+    #translator: { fallbacks: ['%locale%'] }
+    form: ~
+    csrf_protection: ~
+    validation: { enabled: true, enable_annotations: true }
+    templating:
+        engines: ['twig']
+
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        cookie_lifetime: 5 
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments: ~
+    http_method_override: true
+    php_errors:
+        log: true

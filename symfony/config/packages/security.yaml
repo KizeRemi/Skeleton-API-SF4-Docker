@@ -1,0 +1,35 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+
+        login:
+            pattern:  ^/login
+            stateless: true
+            anonymous: true
+            provider:   fos_userbundle
+            form_login:
+                check_path:               /login_check
+                username_parameter:       _username
+                password_parameter:       _password
+                success_handler:          lexik_jwt_authentication.handler.authentication_success
+                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session: false
+        api:
+            pattern:   ^/
+            stateless: true
+            anonymous: true
+            lexik_jwt: ~
+
+    access_control:
+        - { path: ^/api/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
