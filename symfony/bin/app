@@ -38,6 +38,12 @@ init ()
 
     echo ""
 
+    echo "----> Generate key ssl"
+    mkdir -p symfony/config/jwt
+    openssl genrsa -out symfony/config/jwt/private.pem -aes256 4096
+    openssl rsa -pubout -in symfony/config/jwt/private.pem -out symfony/config/jwt/public.pem
+    echo ""
+
     docker-compose ps
 }
 
