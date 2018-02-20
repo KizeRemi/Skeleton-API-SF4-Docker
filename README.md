@@ -1,57 +1,58 @@
-docker-symfony
+Skeleton Symfony4 API with Docker
 ==============
 
 [![Build Status](https://secure.travis-ci.org/eko/docker-symfony.png?branch=master)](http://travis-ci.org/eko/docker-symfony)
 
+Ce repo contient le code de base afin de créer une API Symfony sous Docker.
 
-This is a complete stack for running Symfony 4 (latest version: Flex) into Docker containers using docker-compose tool.
+Images docker: 
+* `db`: Container MySQL,
+* `php`: Container PHP-FPM,
+* `nginx`: Container NGinx server web,
+* `elk`: Container ELK (ElasticSearch / Logstach / Kibana)
+
+Bundle Symfony:
+* FOSRestBundle
+* JWT-Authentication
+* FOSUserBundle
 
 # Installation
 
-First, clone this repository:
+Premièrement, cloner le dépot:
 
 ```bash
-$ git clone https://github.com/eko/docker-symfony.git
+$ git clone git@github.com:KizeRemi/Skeleton-API-SF4-Docker.git
 ```
-
-Next, put your Symfony application into `symfony` folder and do not forget to add `symfony.dev` in your `/etc/hosts` file.
-
-Make sure you adjust `database_host` in `parameters.yml` to the database container alias "db"
-
-Then, run:
 
 ```bash
-$ docker-compose up
+$ cd Skeleton-API-SF4-Docker
 ```
-
-You are done, you can visit your Symfony application on the following URL: `http://symfony.dev` (and access Kibana on `http://symfony.dev:81`)
-
-_Note :_ you can rebuild all Docker images by running:
+Vous pouvez le renommer le dossier comme vous le souhaitez. Puis
 
 ```bash
-$ docker-compose build
+$ symfony/bin/app init
 ```
 
-# How it works?
+Cette commande va initialiser tout votre projet. Elle va lancer les container, créer votre base de données, installer les bundles et charger les fixtures. Cette commande est à utiliser une fois ou pour réinitialiser complètement votre projet.
 
-Here are the `docker-compose` built images:
-
-* `db`: This is the MySQL database container (can be changed to postgresql or whatever in `docker-compose.yml` file),
-* `php`: This is the PHP-FPM container including the application volume mounted on,
-* `nginx`: This is the Nginx webserver container in which php volumes are mounted too,
-* `elk`: This is a ELK stack container which uses Logstash to collect logs, send them into Elasticsearch and visualize them with Kibana.
-
-This results in the following running containers:
-
+Par la suite, utiliser cette commande pour lancer votre projet
 ```bash
-> $ docker-compose ps
-        Name                       Command               State              Ports
---------------------------------------------------------------------------------------------
-dockersymfony_db_1      docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
-dockersymfony_elk_1     /usr/bin/supervisord -n -c ...   Up      0.0.0.0:81->80/tcp
-dockersymfony_nginx_1   nginx                            Up      443/tcp, 0.0.0.0:80->80/tcp
-dockersymfony_php_1     php-fpm7 -F                      Up      0.0.0.0:9000->9000/tcp
+$ symfony/bin/app start
 ```
+
+Pour stopper tous les container:
+```bash
+$ symfony/bin/app destroy
+```
+
+D'autres commandes sont disponibles, voir le fichier *symfony/bin/app* pour en savoir plus.
+
+Dans le cas où vous utilisez votre propre projet symfony:
+```bash
+$ docker-compose up -d
+```
+Mais c'est à vous de créer tout le process d'initialisation de votre projet.
+
 
 # Read logs
 
