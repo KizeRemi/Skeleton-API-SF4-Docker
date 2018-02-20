@@ -41,6 +41,7 @@ ADD symfony.pool.conf /etc/php7/php-fpm.d/
 
 RUN addgroup -g 1000 -S www-data && \
     adduser -D -g '' -G www-data www-data
+
 CMD ["php-fpm7", "-F"]
 
 WORKDIR /var/www/symfony
