@@ -61,6 +61,8 @@ $ docker-compose up -d
 ```
 Mais c'est à vous de créer tout le process d'initialisation de votre projet.
 
+# La documentation!
+La documentation de l'API est disponible sur `http://localhost/api/doc`.
 
 # Pour utiliser PhpMyAdmin!
 L'interface phpmyadmin est disponible sur `http://localhost.dev:8080`.
