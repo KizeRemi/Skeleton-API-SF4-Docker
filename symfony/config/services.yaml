@@ -34,6 +34,8 @@ services:
             - '@fos_user.user_manager'
         public: true
 
-    App\Repository\UserRepository:
+    app.repository.user_repository:
+        class: App\Repository\UserRepository
         factory: 'doctrine.orm.entity_manager:getRepository'
         arguments: ['App\Entity\User']
+        public: true

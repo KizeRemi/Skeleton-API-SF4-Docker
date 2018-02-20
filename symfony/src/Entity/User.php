@@ -9,8 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use JMS\Serializer\Annotation\ExclusionPolicy;
+use Swagger\Annotations as SWG;
 
 /**
+ * 
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(
@@ -33,6 +35,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /*
+     * @SWG\Property(format="string")
+     */
+    protected $username;
 
     /**
      * @ORM\Column(type="string", length=25, nullable=true)

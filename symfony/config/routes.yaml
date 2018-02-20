@@ -22,10 +22,14 @@ fos_user_change_password:
 
 user:
     type: rest
-    prefix: api
+    prefix: /api/v1
     resource: App\Controller\UserController
 
 default:
     type: rest
-    prefix: api
+    prefix: /api/v1
     resource: App\Controller\DefaultController
+
+login_check:
+    prefix: /api/v1
+    path: /login_check

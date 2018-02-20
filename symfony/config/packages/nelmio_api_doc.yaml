@@ -23,4 +23,4 @@
 nelmio_api_doc:
     areas:
         path_patterns: # an array of regexps
-            - ^/api(?!/doc$)
+            - ^/api/v1(?!/doc$)
