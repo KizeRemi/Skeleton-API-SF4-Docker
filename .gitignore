@@ -16,7 +16,6 @@
 !/symfony/var/SymfonyRequirements.php
 /symfony/vendor/
 /symfony/web/bundles/
-/symfony/.env
 ###> symfony/framework-bundle ###
 /symfony/public/bundles/
 /symfony/var/
