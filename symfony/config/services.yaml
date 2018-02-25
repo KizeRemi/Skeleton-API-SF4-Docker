@@ -39,3 +39,12 @@ services:
         factory: 'doctrine.orm.entity_manager:getRepository'
         arguments: ['App\Entity\User']
         public: true
+
+    app.user.password_handler:
+        class: App\Services\User\PasswordHandler
+        arguments:
+            - '@fos_user.util.token_generator'
+            - '%fos_user.resetting.token_ttl%'
+            - '@fos_user.user_manager'
+            - '@form.factory'
+        public: true

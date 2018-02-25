@@ -27,7 +27,7 @@ $ git clone git@github.com:KizeRemi/Skeleton-API-SF4-Docker.git
 ```bash
 $ cd Skeleton-API-SF4-Docker
 ```
-Vous pouvez le renommer le dossier comme vous le souhaitez. Avant de lancer la prochaine, veillez à configurer votre base de données MySQL correctement dans le docker-compose.yml
+Vous pouvez le renommer le dossier comme vous le souhaitez. Avant de lancer la prochaine commande, veillez à configurer votre base de données MySQL correctement dans le docker-compose.yml
 
 
 ```bash

@@ -1,6 +1,6 @@
 fos_user:
     db_driver: orm
-    firewall_name: main
+    firewall_name: login
     user_class: App\Entity\User
     from_email:
         address: "myaddress"

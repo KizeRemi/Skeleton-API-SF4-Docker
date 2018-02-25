@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class UserResetPasswordType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -19,11 +19,10 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('email')
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
+                'required' => true,
             ]);
     }
 
@@ -37,13 +36,5 @@ class UserType extends AbstractType
                 'csrf_protection' => false,
             ]
         );
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'user';
     }
 }
