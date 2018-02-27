@@ -65,6 +65,14 @@ class LoginController extends Controller implements ClassResourceInterface
      *
      * @return mixed
      * 
+     * @SWG\Response(
+     *     response=200,
+     *     description="Change the user password.",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @Model(type=User::class)
+     *     )
+     * )
      * @SWG\Parameter(name="user", in="body", description="The field used for the user email",
      *     @SWG\Schema(type="object",
      *          @SWG\Property(type="object", property="plainPassword",
