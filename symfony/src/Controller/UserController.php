@@ -62,19 +62,16 @@ class UserController extends Controller implements ClassResourceInterface
      * 
      * @SWG\Response(
      *     response=201,
-     *     description="The token authentication for the user."
+     *     description="Create a new account for the user."
      * )
-     * @SWG\Parameter(name="username", in="body", type="string", description="The field used for the user password", required=true,
-     *     @SWG\Schema(type="string")
-     * )
-     * @SWG\Parameter(name="email", in="body", type="string", description="The field used for the user password", required=true,
-     *     @SWG\Schema(type="string")
-     * )
-     * @SWG\Parameter(name="plainPassword", in="body", type="object", description="The field used for the user password",
-     *     required=true,
+     * @SWG\Parameter(name="user", in="body", type="object", description="The field used for the user password",
      *     @SWG\Schema(type="object",
-     *          @SWG\Property(type="string", property="first", type="string", example="12345"),
-     *          @SWG\Property(type="string", property="second", type="string", example="12345"),  
+     *          @SWG\Property(type="string", property="username", type="string", example="John Doe", description="username" ),
+     *          @SWG\Property(type="string", property="email", type="string", example="Johndoe@email.fr"),
+     *          @SWG\Property(type="object", property="plainPassword",
+     *               @SWG\Property(type="string", property="first", type="string", example="12345"),
+     *               @SWG\Property(type="string", property="second", type="string", example="12345")
+     *          )
      *     )
      * )
      * @SWG\Tag(name="Users")

@@ -69,4 +69,3 @@ L'interface phpmyadmin est disponible sur `http://localhost.dev:8080`.
 
 # Pour utiliser Kibana!
 Les logs de Nginx et symfony disponibles sur `http://localhost.dev:81`.
-.

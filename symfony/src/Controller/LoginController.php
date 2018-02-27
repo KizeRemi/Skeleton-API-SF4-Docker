@@ -46,7 +46,12 @@ class LoginController extends Controller implements ClassResourceInterface
      *         @Model(type=User::class)
      *     )
      * )
-     * @SWG\Parameter(name="email", in="body", type="string", description="The field used for the user password",required=true)
+     * @SWG\Parameter(name="user", in="body", description="The field used for the user email",
+     *     @SWG\Schema(type="object",
+     *          @SWG\Property(type="string", property="email", type="string", example="johndoe@email.fr", description="User's email" )
+     *     )
+     * )
+     * 
      * @Rest\Post("/password/forgot")
      */
     public function postForgotAction(Request $request)
@@ -59,11 +64,18 @@ class LoginController extends Controller implements ClassResourceInterface
      * @param $token
      *
      * @return mixed
-     *
-     * @Rest\Post("/password/reset/{token}")
-     * @Rest\View(
-     *  statusCode = 204
+     * 
+     * @SWG\Parameter(name="user", in="body", description="The field used for the user email",
+     *     @SWG\Schema(type="object",
+     *          @SWG\Property(type="object", property="plainPassword",
+     *               @SWG\Property(type="string", property="first", type="string", example="12345"),
+     *               @SWG\Property(type="string", property="second", type="string", example="12345")
+     *          )
+     *     )
      * )
+     * 
+     * @Rest\Post("/password/reset/{token}")
+     * 
      */
     public function postResetAction(Request $request, $token)
     {
